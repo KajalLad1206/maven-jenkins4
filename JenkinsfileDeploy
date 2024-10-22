@@ -4,7 +4,7 @@ pipeline {
         stage('Copy Artifacts') {
             steps {
                 echo "copy artifacts from build pipeline"
-                copyArtifacts filter: '**/*.war', fingerprintArtifacts: true, projectName: 'multi-branch-build', selector: lastSuccessful()
+                copyArtifacts filter: '**/*.war', fingerprintArtifacts: true, projectName: 'pipeline-build', selector: lastSuccessful()
             }
         }
         stage('Deploy-to-tomcat') {
